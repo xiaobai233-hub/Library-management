@@ -1,3 +1,17 @@
 package com.library;
-import org.springframework.http.ResponseEntity; import org.springframework.web.bind.annotation.*; import java.util.*;
-@RestControllerAdvice public class GlobalExceptionHandler { @ExceptionHandler(BorrowException.class) public ResponseEntity<Map<String,Object>> handleBorrow(BorrowException e){Map<String,Object> body=new LinkedHashMap<>();body.put("code",e.getStatus());body.put("message",e.getMessage());return ResponseEntity.status(e.getStatus()).body(body);} }
+
+import java.util.*;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+
+@RestControllerAdvice
+public class GlobalExceptionHandler {
+
+  @ExceptionHandler(BorrowException.class)
+  public ResponseEntity<Map<String, Object>> handleBorrow(BorrowException e) {
+    Map<String, Object> body = new LinkedHashMap<>();
+    body.put("code", e.getStatus());
+    body.put("message", e.getMessage());
+    return ResponseEntity.status(e.getStatus()).body(body);
+  }
+}
