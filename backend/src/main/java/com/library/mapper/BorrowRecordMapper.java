@@ -1,4 +1,10 @@
-package com.library;
+package com.library.mapper;
+import com.library.controller.*;
+import com.library.service.*;
+import com.library.mapper.*;
+import com.library.pojo.*;
+import com.library.exception.*;
+
 
 import java.util.*;
 import org.apache.ibatis.annotations.*;
@@ -30,3 +36,5 @@ public interface BorrowRecordMapper {
   )
   int returnBook(Map<String, Object> r);
 }
+
+

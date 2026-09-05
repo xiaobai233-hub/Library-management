@@ -1,4 +1,10 @@
-package com.library;
+package com.library.controller;
+import com.library.controller.*;
+import com.library.service.*;
+import com.library.mapper.*;
+import com.library.pojo.*;
+import com.library.exception.*;
+
 
 import java.util.*;
 import org.springframework.web.bind.annotation.*;
@@ -35,3 +41,5 @@ public class BorrowRecordController {
     return s.returnBook(id);
   }
 }
+
+

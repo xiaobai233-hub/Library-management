@@ -1,4 +1,10 @@
-package com.library;
+package com.library.mapper;
+import com.library.controller.*;
+import com.library.service.*;
+import com.library.mapper.*;
+import com.library.pojo.*;
+import com.library.exception.*;
+
 
 import org.apache.ibatis.annotations.*;
 
@@ -19,3 +25,5 @@ public interface UserMapper {
   @Delete("DELETE FROM library_user WHERE id=#{id}")
   int delete(Long id);
 }
+
+

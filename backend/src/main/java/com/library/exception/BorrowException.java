@@ -1,4 +1,10 @@
-package com.library;
+package com.library.exception;
+import com.library.controller.*;
+import com.library.service.*;
+import com.library.mapper.*;
+import com.library.pojo.*;
+import com.library.exception.*;
+
 
 /** 借阅业务异常，用于返回库存或归还相关错误。 */
 public class BorrowException extends RuntimeException {
@@ -14,3 +20,5 @@ public class BorrowException extends RuntimeException {
     return status;
   }
 }
+
+

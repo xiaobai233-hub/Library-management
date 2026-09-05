@@ -1,4 +1,10 @@
-package com.library;
+package com.library.pojo;
+import com.library.controller.*;
+import com.library.service.*;
+import com.library.mapper.*;
+import com.library.pojo.*;
+import com.library.exception.*;
+
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
@@ -16,3 +22,5 @@ public class Book {
   public LocalDateTime updateTime;
   public Long version;
 }
+
+

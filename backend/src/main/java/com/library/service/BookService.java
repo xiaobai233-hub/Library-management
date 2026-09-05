@@ -1,4 +1,10 @@
-package com.library;
+package com.library.service;
+import com.library.controller.*;
+import com.library.service.*;
+import com.library.mapper.*;
+import com.library.pojo.*;
+import com.library.exception.*;
+
 
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
@@ -47,3 +53,5 @@ public class BookService {
     mapper.delete(id);
   }
 }
+
+
