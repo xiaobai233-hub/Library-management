@@ -1,4 +1,5 @@
 <script setup>
+// 前端主页面：集中管理登录、图书目录、借阅记录和弹窗状态。
 import { computed, nextTick, onMounted, onUnmounted, ref, watch } from "vue";
 import {
   BookOpen,
@@ -17,6 +18,7 @@ import {
   Sparkles,
 } from "lucide-vue-next";
 
+// 图书列表、筛选条件和页面弹窗状态。
 const books = ref([]),
   query = ref(""),
   category = ref("全部分类"),
@@ -39,6 +41,7 @@ const page = ref(1),
   pages = ref(1);
 const activeMetric = ref("all");
 // 登录状态仅保存在当前页面内，刷新或重新打开页面后必须重新登录。
+// 登录信息只保存在当前页面内，刷新后需要重新登录。
 const loginUser = ref(null);
 const loginForm = ref({ username: "admin", password: "" }),
   loginError = ref("");
@@ -87,6 +90,7 @@ const form = ref({
   description: "",
 });
 const categories = ["全部分类", "历史文学", "科幻小说", "推理小说", "言情小说"];
+// 根据搜索词、分类和统计卡片筛选当前页面的图书。
 const filteredBooks = computed(() =>
   books.value.filter((b) => {
     const matchBase =
@@ -107,6 +111,7 @@ const filteredBooks = computed(() =>
 );
 const stats = computed(() => ({ total: libraryTotal.value }));
 async function load() {
+  // 从后端分页加载图书，并转换成前端展示所需的数据结构。
   const scrollY = window.scrollY;
   try {
     const categoryId =
@@ -139,6 +144,7 @@ async function load() {
   }
 }
 async function refreshLibraryTotal() {
+  // 单独获取馆藏总数，用于概览统计卡片。
   try {
     const r = await fetch("/api/books?page=1&size=1");
     if (r.ok) libraryTotal.value = (await r.json()).total || 0;
@@ -174,6 +180,7 @@ function openEdit(b) {
   showForm.value = true;
 }
 async function save() {
+  // 管理员新增或编辑图书。
   const method = editing.value ? "PUT" : "POST";
   const url = editing.value ? `/api/books/${editing.value}` : "/api/books";
   const payload = {
@@ -208,6 +215,7 @@ async function save() {
   }
 }
 function requestDeleteBook(book) {
+  // 打开项目内的删除确认弹窗，避免使用浏览器原生 confirm。
   selectedDeleteBook.value = book;
   showDeleteBook.value = true;
 }
@@ -239,6 +247,7 @@ function borrowBook(bookToBorrow) {
   showBorrowConfirm.value = true;
 }
 async function confirmBorrow() {
+  // 提交借阅请求，成功后刷新库存。
   const book = selectedBook.value;
   const r = await fetch("/api/borrow-records", {
     method: "POST",
@@ -255,6 +264,7 @@ async function confirmBorrow() {
   }
 }
 async function loadRecords() {
+  // 加载借阅记录，并按用户身份过滤可见记录。
   const r = await fetch("/api/borrow-records");
   if (r.ok) {
     const data = await r.json();
@@ -310,6 +320,7 @@ async function confirmReturn() {
   }
 }
 async function login() {
+  // 调用登录接口，登录成功后进入图书管理页面。
   loginError.value = "";
   const r = await fetch("/api/auth/login", {
     method: "POST",
@@ -351,6 +362,7 @@ function confirmLogout() {
   loginError.value = "";
 }
 async function register() {
+  // 校验并提交新用户注册信息。
   loginError.value = "";
   if (registerForm.value.password !== registerForm.value.confirmPassword) {
     loginError.value = "两次输入的密码不一致";

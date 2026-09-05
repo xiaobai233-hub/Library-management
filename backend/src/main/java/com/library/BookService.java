@@ -5,6 +5,7 @@ import com.github.pagehelper.PageInfo;
 import org.springframework.stereotype.Service;
 
 @Service
+/** 图书业务层，负责分页查询和图书写入。 */
 public class BookService {
 
   private final BookMapper mapper;

@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("/api/categories")
 @CrossOrigin
+/** 提供图书分类的查询和管理接口。 */
 public class CategoryController {
 
   private final CategoryService s;

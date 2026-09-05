@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 @Service
+/** 借阅业务层，负责库存扣减、归还和借阅记录维护。 */
 public class BorrowRecordService {
 
   private final BorrowRecordMapper m;

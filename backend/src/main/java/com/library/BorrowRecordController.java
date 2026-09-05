@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("/api/borrow-records")
 @CrossOrigin
+/** 提供借阅记录查询、借阅和归还接口。 */
 public class BorrowRecordController {
 
   private final BorrowRecordService s;

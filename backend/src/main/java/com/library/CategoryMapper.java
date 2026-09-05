@@ -4,6 +4,7 @@ import java.util.*;
 import org.apache.ibatis.annotations.*;
 
 @Mapper
+/** 图书分类数据访问层。 */
 public interface CategoryMapper {
   @Select("SELECT * FROM book_category ORDER BY sort,id")
   List<Map<String, Object>> list();

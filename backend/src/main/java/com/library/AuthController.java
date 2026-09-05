@@ -8,6 +8,7 @@ import org.springframework.web.server.ResponseStatusException;
 @RestController
 @RequestMapping("/api/auth")
 @CrossOrigin
+/** 提供登录、注册和账号注销接口。 */
 public class AuthController {
 
   private final UserMapper mapper;

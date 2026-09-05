@@ -4,6 +4,7 @@ import java.util.*;
 import org.apache.ibatis.annotations.*;
 
 @Mapper
+/** 读者数据访问层。 */
 public interface ReaderMapper {
   @Select(
     "SELECT id,reader_no AS readerNo,reader_name AS readerName FROM reader ORDER BY id DESC"

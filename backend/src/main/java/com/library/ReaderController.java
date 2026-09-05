@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("/api/readers")
 @CrossOrigin
+/** 提供读者信息查询和新增接口。 */
 public class ReaderController {
 
   private final ReaderMapper mapper;

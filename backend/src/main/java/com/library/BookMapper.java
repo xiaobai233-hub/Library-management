@@ -4,6 +4,7 @@ import java.util.*;
 import org.apache.ibatis.annotations.*;
 
 @Mapper
+/** 图书数据访问层，封装 book 表的 SQL 操作。 */
 public interface BookMapper {
   @Select(
     "<script>SELECT * FROM book WHERE 1=1 <if test='bookName != null and bookName != \"\"'>AND (book_name LIKE CONCAT('%',#{bookName},'%') OR author LIKE CONCAT('%',#{bookName},'%'))</if> <if test='categoryId != null and categoryId &gt; 0'>AND category_id=#{categoryId}</if> ORDER BY id DESC</script>"

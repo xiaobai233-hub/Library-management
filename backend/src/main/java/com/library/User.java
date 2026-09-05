@@ -1,5 +1,6 @@
 package com.library;
 
+/** 用户实体，保存登录和角色信息。 */
 public class User {
 
   public Long id;

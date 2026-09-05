@@ -3,6 +3,7 @@ package com.library;
 import org.apache.ibatis.annotations.*;
 
 @Mapper
+/** 用户数据访问层，封装登录和账号操作。 */
 public interface UserMapper {
   @Select(
     "SELECT id,user_name AS username,password,CASE WHEN user_name='admin' THEN 'ADMIN' ELSE 'USER' END AS role,create_time AS createTime FROM library_user WHERE user_name=#{username}"

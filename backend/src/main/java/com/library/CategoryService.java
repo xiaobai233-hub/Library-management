@@ -4,6 +4,7 @@ import java.util.*;
 import org.springframework.stereotype.Service;
 
 @Service
+/** 图书分类业务层。 */
 public class CategoryService {
 
   private final CategoryMapper mapper;

@@ -4,6 +4,7 @@ import java.util.*;
 import org.apache.ibatis.annotations.*;
 
 @Mapper
+/** 借阅记录数据访问层。 */
 public interface BorrowRecordMapper {
   @Select(
     "SELECT br.*,COALESCE(u.user_name,rd.reader_name) AS borrowerUsername FROM borrow_record br LEFT JOIN library_user u ON br.reader_id=u.id LEFT JOIN reader rd ON br.reader_id=rd.id ORDER BY br.id DESC"

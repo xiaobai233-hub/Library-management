@@ -5,6 +5,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestControllerAdvice
+/** 统一处理业务异常并转换为前端可读的错误响应。 */
 public class GlobalExceptionHandler {
 
   @ExceptionHandler(BorrowException.class)

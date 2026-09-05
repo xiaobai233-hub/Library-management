@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("/api/books")
 @CrossOrigin
+/** 提供图书分页查询及增删改接口。 */
 public class BookController {
 
   private final BookService service;
